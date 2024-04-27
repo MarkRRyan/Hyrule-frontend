@@ -1,10 +1,12 @@
 import './App.css';
-import Monsters from './components/monsters';
+import 'materialize-css/dist/css/materialize.min.css';
+import Monsters from './components/Monsters';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <div className="App">
-      Hyrule Compendium
+      <Nav />
       <Monsters />
     </div>
   );
