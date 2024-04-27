@@ -20,28 +20,39 @@ const Monsters = () => {
     return (
       <div>
         <h1>Monsters :)</h1>
+        <div className="container row">
           {data.map(monster => (
-            <div >
-                <h1 key={monster.id}>{monster.name} :)</h1>
-                <h3>Compendium ID: {monster.compendiumId}</h3>
-                <img src={monster.image} alt="compendium monster" />
-                <p>{monster.description}</p>
-                <ul>
-                    <h4>Drops:</h4>
-                    {monster.drops.map(drop => (
-                        <li key={drop.id}>{drop}</li>
-                    ))}
-                </ul>
-                <ul>
-                    <h4>Commonly Found:</h4>
-                    {monster.commonLocations.map(location => (
-                        <li key={location.id}>{location}</li>
-                    ))}
-                </ul>
+            <div>
+              <div className="card col s4">
+                <div className="card-image waves-effect waves-block waves-light">
+                  <img src={monster.image} alt="compendium monster" />
+                </div>
+                <div className="card-content">
+                  <h1 className='card-title activator grey-text' key={monster.id}>{monster.name} :)</h1>
+                  <h3>Compendium ID: {monster.compendiumId}</h3>
+                </div>
+                <div className="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Description:<i class="material-icons right">close</i></span>
+                  <p>{monster.description}</p>
+                  <ul>
+                      <h4>Drops:</h4>
+                      {monster.drops.map(drop => (
+                          <li key={drop.id}>{drop}</li>
+                      ))}
+                  </ul>
+                  <ul>
+                      <h4>Commonly Found:</h4>
+                      {monster.commonLocations.map(location => (
+                          <li key={location.id}>{location}</li>
+                      ))}
+                  </ul>
+                  </div>
+              </div>
             </div>
-            
           ))}
+          </div>
       </div>
+
     );
   };
 
