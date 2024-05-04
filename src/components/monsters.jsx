@@ -9,8 +9,9 @@ const Monsters = () => {
   
       axios.get(apiUrl)
         .then(res => {
-          setData(res.data);
-          console.log(res.data)
+          const sortedMonsters = res.data.sort((a, b) => a.compendiumId - b.compendiumId)
+          setData(sortedMonsters);
+          console.log(sortedMonsters)
         })
         .catch(error => {
           console.error('Error fetching data:', error);
@@ -25,14 +26,14 @@ const Monsters = () => {
             <div className='card-container'>
               <div className="card col s3">
                 <div className="card-image waves-effect waves-block waves-light">
-                  <img src={monster.image} alt="compendium monster" />
+                  <img key={monster.id} src={monster.image} alt="compendium monster" />
                 </div>
                 <div className="card-content">
                   <h1 className='card-title activator grey-text' key={monster.id}>{monster.name} :)</h1>
                   <p>Compendium ID: {monster.compendiumId}</p>
                 </div>
                 <div className="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Description:<i class="material-icons right">close</i></span>
+                  <span className="card-title grey-text text-darken-4">Description:<i className="material-icons right">close</i></span>
                   <p>{monster.description}</p>
                   <ul>
                       <h4>Drops:</h4>
