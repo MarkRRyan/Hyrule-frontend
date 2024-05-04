@@ -22,14 +22,14 @@ const Monsters = () => {
         <h1>Monsters :)</h1>
         <div className="container row">
           {data.map(monster => (
-            <div>
-              <div className="card col s4">
+            <div className='card-container'>
+              <div className="card col s3">
                 <div className="card-image waves-effect waves-block waves-light">
                   <img src={monster.image} alt="compendium monster" />
                 </div>
                 <div className="card-content">
                   <h1 className='card-title activator grey-text' key={monster.id}>{monster.name} :)</h1>
-                  <h3>Compendium ID: {monster.compendiumId}</h3>
+                  <p>Compendium ID: {monster.compendiumId}</p>
                 </div>
                 <div className="card-reveal">
                   <span class="card-title grey-text text-darken-4">Description:<i class="material-icons right">close</i></span>
@@ -46,7 +46,7 @@ const Monsters = () => {
                           <li key={location.id}>{location}</li>
                       ))}
                   </ul>
-                  </div>
+                </div>
               </div>
             </div>
           ))}
